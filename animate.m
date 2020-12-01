@@ -22,7 +22,7 @@ ip.addParameter('SaveVideo', 0)
 ip.parse(varargin{:});
 
 % Detect atoms which are not captured into the 3D MOT.
-position_output = optimot.read_output('pos.txt');
+position_output = utils.read_output('pos.txt');
 captured_ids = ip.Results.HighlightFn(position_output);
 
 position = {position_output.vec};
