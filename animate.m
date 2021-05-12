@@ -18,6 +18,7 @@ ip.addParameter('AxisEqual', 1);
 ip.addParameter('FrameSkip', 1);
 ip.addParameter('HighlightFn', @(position_output) [])
 ip.addParameter('SimulationRegion', [ -0.1 0.1; -0.1 0.1; -0.1 0.1 ])
+ip.addParameter('FrameRate', 5)
 ip.addParameter('SaveVideo', 0)
 ip.parse(varargin{:});
 
@@ -44,7 +45,7 @@ zlim(sr(3,:));
 if ip.Results.SaveVideo
     v = VideoWriter('trajetory.avi','Motion JPEG AVI');
     v.Quality = 95;
-    v.FrameRate = 5;
+    v.FrameRate = ip.Results.FrameRate;
     v.open();
     oc = onCleanup(@() v.close());
 end
